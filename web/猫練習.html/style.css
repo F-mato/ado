@@ -1,0 +1,9 @@
+#contents {
+    display: grid;
+    grid-template-columns:  120px 120px 120px ;
+}
+.item {
+    background: #0bd;
+    color: #fff;
+    padding: 10px;
+}

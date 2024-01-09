@@ -1,0 +1,348 @@
+* {
+  margin: 0;                        /* 初期設定余白なくす */
+  padding: 0;                       /* 初期設定余白なくす */
+  box-sizing: border-box;           /* 初期設定枠線なくす */
+}
+
+.hero {
+  height: 100vh;                    /* 画面いっぱいに縦を作る */
+  width: 100%;                      /* 画面いっぱいに横をつくる */
+  background-color: #101010;      /* 背面の色の設定 */
+}
+
+nav {
+  display: flex;                    /* 全部横並びになる */
+  align-items: center;              /* 中央に寄せる */
+  justify-content: space-between;   /* 等間隔であける */
+  padding: 45px 8% 0 8%;            /* 等間隔の調整 */ 
+}
+
+.logo {
+  color: white;                   /* logoのクラスの文字色変更 */
+  font-size: 35px;                  /* 文字のサイズ */
+  letter-spacing: 1px;              /* 文字の間隔 */
+  cursor: pointer;                  /* カーソルが合うとホバーする */
+}
+
+span {
+  color: lightseagreen;          /* spanタグの色の変更 */
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;            /* インライン要素 */
+  padding: 10px 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;             /* ホバーした時の変化の時間 */
+}
+                                    /* aタグがホバーしたら変わる色 */
+nav ul li a:hover {
+  color: lightseagreen;
+}
+
+.btn {
+  background-color: lightseagreen;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 25px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  border-radius: 20px;         /* ホバーした時の四角を丸くするアクション */
+}
+
+.content {
+  padding-top: 230px;
+}
+
+.content .body {
+  display: flex;                   /* 横並びにする */
+  justify-content: space-evenly;
+  padding-right: 50px;             /* 右の間隔の調整 */
+  padding-left: 270px;             /* 左の間隔の調整 */
+}
+
+.content .body img {
+  width: 1080px;
+  height: 720px;
+  margin-top: -150px;
+}
+
+h1 {
+  color: white;
+  margin: 20px 0 20px;
+  font-size: 75px;                  /* 文字のサイズ */
+}
+
+h3 {
+  color: white;
+  font-size: 25px;                  /* 文字のサイズ */
+  margin-bottom: 50px;
+}
+
+h4 {
+  color: #fcfc;
+  letter-spacing: 2px;              /* 文字の間隔 */
+  font-size: 20px;                  /* 文字のサイズ */
+}
+
+.newslatter form {
+  width: 380px;
+  max-width: 100%;
+  position: relative;
+}
+/* first-childで最初のボタンの設定コード */
+.newslatter form input:first-child {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 130px 15px 15px;     /* 上・下・右・左の間隔 */
+  border: 2px solid lightseagreen;  /* ボタンの角の丸みと色をつくる */
+  outline: none;
+  border-radius: 30px;                 /* ボタンの角の丸みをつくる */
+}
+/* last-childで一番最後のボタンの設定 */
+.newslatter form input:last-child {
+  position: absolute;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 10px 30px;               /* 上・下設定 */
+  border-radius: 30px;
+  background-color: lightseagreen;
+  color: white;
+  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+  top: 5px;
+  right: 6px;
+  cursor: pointer;
+}
+
+.about {
+  width: 100%;
+  padding: 100px 0;                /* 上・下設定 */
+  background-color: #191919;
+}
+
+.about img {
+  height: auto;
+  width: 430px;
+}
+
+.about-text {
+  width: 550px;
+}
+
+.main {
+  width: 1130px;                 /* 中央に寄せるために必要 */
+  max-width: 100%;
+  margin: 0 auto;                /* 中央に寄せるために必要 */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-text h2 {
+  color: white;
+  font-size: 75px;                /* 文字のサイズ */
+  margin-bottom: 20px;             /* 余白をあける */
+}
+
+.about-text h5 {
+  color: white;
+  letter-spacing: 1px;                  /* 文字の間隔 */
+  font-size: 22px;                      /* 文字のサイズ */
+  margin-bottom: 25px;                  /* 余白をあける */
+}
+
+.about-text p {
+  color: white;
+  letter-spacing: 1px;                 /* 文字の間隔 */
+  line-height: 28px;
+  font-size: 18px;                     /* 文字のサイズ */
+  margin-bottom: 45px;                  /* 余白をあける */
+}
+
+button {
+  background-color: lightseagreen;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;               /* 上・下設定 */
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: transparent;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.service {
+  background: #101010;
+  width: 100%;
+  padding: 100px 0px;                    /* 上・下設定 */
+}
+
+.title h2 {
+  color: white;
+  font-size: 75px;                       /* 文字のサイズ */
+  margin: 30px auto;                     /* 上下30px後は自動 */
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.card {
+  height: 390px;
+  width: 365px;
+  background-color: #191919;
+  padding: 20px 35px;                    /* 上・下設定 */
+  border-radius: 20px;                   /* ボタンの丸みをおびさせる */
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card i {
+  font-size: 50px;                    /* 文字のサイズ */
+  display: block;
+  text-align: center;
+  margin: 25px 0px;
+  color: lightseagreen;
+}
+
+h5 {
+  color: white;
+  font-size: 23px;                    /* 文字のサイズ */
+  margin-bottom: 15px;                 /* 余白をあける */
+}
+
+
+.pra p {
+  color: #fcfc;
+  font-size: 16px;                    /* 文字のサイズ */
+  line-height: 25px;
+  margin-bottom: 30px;                 /* 余白をあける */
+}
+
+
+.card .button {
+  background-color: lightseagreen;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 9px 22px;                  /* 上・下設定 */
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.card .button:hover {
+  background-color: transparent;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.contact {
+  width: 100%;
+  height: 290px;
+  background: #191919;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact p {
+  color: white;
+  font-size: 30px;                   /* 文字のサイズ */
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.contact .button-two {
+  background-color: lightseagreen;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 9px 22px;                   /* 上・下設定 */
+  border-radius: 30px;                 /* ボタンの丸みをおびさせる */
+  transition: 0.3s;
+}
+
+.contact .button-two:hover {
+  background-color: transparent;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #101010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p:nth-child(1) {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+footer p:nth-child(2) {
+  color: white;
+  font-size: 17px;                    /* 文字のサイズ */
+  width: 500px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.social {
+  display: flex;
+}
+
+.social a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightseagreen;
+  border-radius: 50%;
+  margin: 22px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;                 /* 文字のサイズ */
+}
+
+.social a:hover {
+  transform: scale(1.3);
+  transition: 0.3s;
+}
+
+.end {
+  color: white;
+  margin-top: 100px;
+  font-size: 16px;                   /* 文字のサイズ */
+}
