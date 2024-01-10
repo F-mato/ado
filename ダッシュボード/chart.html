@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+    <title>chartサンプル</title>
+</head>
+<body>
+    <header>
+        <h1>ダッシュボード</h1>
+        <div class="button">
+            <a href="#">月別</a>
+            <a href="#">週別</a>
+        </div>
+    </header>
+
+    <h1>作品別</h1>
+    <div class="chart1">
+    <div style="width: 600px;">
+        <canvas id="chart" width="600" height="300"></canvas>
+    </div>
+   
+    <script>
+        var ctx = $('#chart');
+        var mychart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '映画1',
+                    '映画2',
+                    '映画3'
+                ],
+                datasets: [{
+                    label: '10代',
+                    data: [
+                        1000,400,200,1000,200
+                    ],
+                    backgroundColor: 'rgba(241, 107, 141, 1)',  //棒グラフの色
+                },{
+                    label: '20代',
+                    data: [
+                        300,100,500,50,50
+                    ],
+                    backgroundColor: 'rgba( 31, 167, 165, 1)',  //棒グラフの色
+                },{
+                    label: '30代',
+                    data: [
+                        400,50,100,1500,300
+                    ],
+                    backgroundColor: 'rgba(249, 199,  83, 1)',  //棒グラフの色
+                },{
+                    label: '40代',
+                    data: [
+                        400,500,100,1200,300                    //棒グラフの色
+                    ],
+                    backgroundColor: 'rgba(176, 110,  30, 1)',
+                },{
+                    label: '50代',
+                    data: [
+                        400,50,100,1800,300                     //棒グラフの色
+                    ],
+                    backgroundColor: 'rgba(124,  91, 164, 1)',
+                }]
+            },
+            options: {
+
+                //区分わけのコメント
+                title: {
+                    display: true,
+                    text: '上映中の映画（年代別）'
+                },
+
+                //棒グラフの文字の調整
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMax: 2000,
+                            suggestedMin: 0,
+                            stepSize: 200,
+                            callback: function (value, index, values) {
+                                return value + '円';
+                            }
+                        },
+                    }]
+                }
+            }
+        });
+    </script>
+    </div>
+
+<h1>年代・性別</h1>
+<div class="chart2">
+<div style="width: 300px;">
+    <canvas id="chart_nen" width="150" height="150"></canvas>
+</div>
+
+<script>
+
+    //ここからデータを取得を追加した
+    //async function drawChartFromAPI() {
+    //const response = await fetch('https://api.example.com/data');
+    //const data = await response.json();
+
+    //const ctx = document.getElementById('chart_en').getContext('2d');
+
+
+
+
+    var ctx = $('#chart_nen');
+    var mychart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [//data.labels,
+                '10代',
+                '20代',
+                '30代',
+                '40代',
+                '50代'
+            ],
+            datasets: [{
+                label: 'サンプルグラフ',
+                data: [
+                    10,
+                    30,
+                    30,
+                    10,
+                    20
+                ],
+
+                //円グラフの色
+                backgroundColor: [
+                    'rgba(241, 107, 141, 1)',
+                    'rgba( 31, 167, 165, 1)',
+                    'rgba(249, 199,  83, 1)',
+                    'rgba(176, 110,  30, 1)',
+                    'rgba(124,  91, 164, 1)'
+                ]
+            }]
+        },
+        options: {
+
+                //円グラフのコメント
+            title: {
+                    display: true,
+                    text: '来場者（年代別）'
+                },
+
+                //区分わけの位置
+            legend: {
+                position: 'bottom',
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                    },
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    //}
+    //)
+    });
+
+    //中央の文字
+    Chart.pluginService.register({
+    afterDraw: function(chart) {
+        if (chart.config.type === 'pie') {
+            var width = chart.chart.width,
+                height = chart.chart.height,
+                ctx = chart.chart.ctx;
+
+            ctx.restore();
+            var fontSize = (height / 300).toFixed(2);
+            ctx.font = fontSize + "em sans-serif";
+            ctx.textBaseline = "middle";
+
+            var text = "中央のテキスト",
+                textX = Math.round((width - ctx.measureText(text).width) / 2),
+                textY = height / 4;
+
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+        }
+    }
+});
+        </script>
+
+        
+        <div class="chart3">
+        <div style="width: 300px;">
+           <canvas id="chart_jender" width="150" height="150"></canvas>
+        </div>
+
+        <script>
+
+       //ここからデータを取得を追加した
+    //async function drawChartFromAPI() {
+    //const response = await fetch('https://api.example.com/data');
+    //const data = await response.json();
+
+    //const ctx = document.getElementById('chart_en').getContext('2d');
+
+
+
+
+    var ctx = $('#chart_jender');
+    var mychart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [//data.labels,
+                '男性',
+                '女性'
+            ],
+            datasets: [{
+                label: 'サンプルグラフ',
+                data: [
+                    10,
+                    20
+                ],
+
+                //円グラフの色
+                backgroundColor: [
+                    'rgba( 31, 167, 165, 1)',
+                    'rgba(241, 107, 141, 1)'
+                ],
+            }]
+        },
+        options: {
+
+                //円グラフのコメント
+            title: {
+                    display: true,
+                    text: '来場者（性別別）'
+                },
+
+                //区分わけの位置
+            legend: {
+                position: 'bottom',
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                    },
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    //}
+    //)
+    });
+
+    //中央の文字
+    Chart.pluginService.register({
+    afterDraw: function(chart) {
+        if (chart.config.type === 'pie') {
+            var width = chart.chart.width,
+                height = chart.chart.height,
+                ctx = chart.chart.ctx;
+
+            ctx.restore();
+            var fontSize = (height / 300).toFixed(2);
+            ctx.font = fontSize + "em sans-serif";
+            ctx.textBaseline = "middle";
+
+            var text = "中央のテキスト",
+                textX = Math.round((width - ctx.measureText(text).width) / 2),
+                textY = height / 4;
+
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+        }
+    }
+});
+          
+</script> 
+<script>
+// 設定した値を受け取って、アラートを表示する
+alert('<%=request.getAttribute("/cinema/History") %>');
+
+
+
+
+
+
+/*
+//ここからが難問
+//const postgres = require('postgres');
+
+// 接続情報の設定
+const connection = postgres.createConnection({
+  host: 'localhost',
+  user: 'your_username',
+  password: 'your_password',
+  database: 'your_database_name'
+});
+
+// データベースへの接続
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('データベースに接続しました。');
+});
+
+//データの取得
+const query = connection.query('SELECT * FROM users', (err, results) => {
+  if (err) throw err;
+  console.log('データの取得結果：', results);
+});
+
+//データの更新
+const newData = { age: 31 };
+const condition = { name: 'Taro' };
+
+const query = connection.query('UPDATE users SET ? WHERE ?', [newData, condition], (err, result) => {
+  if (err) throw err;
+  console.log('データが更新されました。');
+});*/
+
+</script>
+</div>   
+
+</body>
+</html>
