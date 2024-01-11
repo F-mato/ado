@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+
+html {
+  box-sizing: border-box;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+body {
+  /*文字の大きさ*/
+  font: 1rem;
+} 
+
+#seat {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 10px 10px;
+
+}
+/*ボタンを中に入れるコード*/
+.seats {
+  position: absolute;
+  left: -9999px;
+}
+
+label {
+  /*ボタンの枠色*/
+  border: 1.5px solid black;
+  color: black;
+  background-color: #6a8494;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 10px 10px 10px;
+}
+
+label::before {
+  content: '';
+  /*ボタン横サイズ*/
+  width: 1px;
+  border: 1.5px solid black #fff;
+}
+
+input:checked + label {
+  background-color: red;
+}
