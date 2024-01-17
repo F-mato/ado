@@ -1,0 +1,20 @@
+・今日の日付を取得するSQL文
+SELECT CURRENT_DATE;
+
+・文字列から数値を取り出す文
+SELECT date
+TRANSLATE(date, TRANSLATE(date, '0123456789', ''), '') AS date_number
+FROM reservetable
+
+・年齢を出す文
+SELECT *,
+CONCAT(FLOOR(EXTRACT(YEAR FROM AGE(to_date)) / 10) * 10, 's') AS age_group
+FROM (SELECT TO_DATE(birth, 'YYYY年mm月dd日') FROM membertable) AS date_age
+
+・2024/01/01を2024-01-01に変更する文
+SELECT TO_DATE(カラム名を書く, 'YYYY年mm月dd日')
+FROM reservetable
+
+INSERT INTO test
+SELECT TO_DATE(date, 'YYYY年mm月dd日')
+FROM reservetable
