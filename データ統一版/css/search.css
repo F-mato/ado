@@ -1,0 +1,13 @@
+html {
+    text-align: center;
+}
+
+form {
+	padding-top: 20px;
+	font-size: 30px;
+}
+
+button {
+	padding: 5px;
+	font-size: 10px;
+}

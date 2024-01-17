@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+html {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-size: 62.5%;
+     /* ↑ デフォルトが16px設定なので62.5%=10pxにし、のちのサイズ設定を計算しやすくしています */
+     color: #40403f;
+     /* ↑まっくろじゃない色 */
+ 	}
+ 	
+ 	p.contact {
+    padding-left: 40px;
+    font-size: 20px;
+    }
+
+	 header {
+     box-sizing: content-box;
+     position: fixed;
+     z-index: 999;
+     top: 0;
+     left: 0;
+     display: flex;
+     flex-wrap: nowrap;
+     width: 100%;
+     height: 113px;
+     align-items: center;
+     border-bottom-style: solid;
+     border-bottom-color: rgb(182, 28, 43);
+     border-width: 4.5px;
+     box-shadow: 0 10px 10px #FFFFFF;
+     background: linear-gradient(to top, rgb(247, 247, 233), rgb(239, 224, 103));
+     font-family: 'Kaisei Tokumin', serif;
+ }
+
+	form {
+		text-align: center;
+		padding-top: 20px;
+		font-size: 30px;
+	}
+
+	input {
+		padding: 10px;
+		font-size: 40px;
+	}
+
+    h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    h2 {
+		padding-top: 160px;
+		text-align: center;
+		font-size: 50px;
+	}
+	
+    
+    button {
+	padding: 5px;
+	font-size: 30px;
+	}
+	
+	/*　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　　　フッターの領域の設定 ここから　　　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　*/
+ /* 全体 */
+ footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 140px;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(166, 146, 150, 0.168);
+    background: linear-gradient(to top, rgb(232, 229, 229), rgb(165, 163, 163));
+}
+/* 全体 */
+
+
+/* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
+/* footer div.logo img { 
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    margin-top: 20px;
+    margin-left: 80px;
+}*/
+/* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
+
+
+/* 左側のコピーテキスト */
+footer div.footer-text {
+    width: 250px;
+    height: 30px;
+    font-size: 130%;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-family: 'Kaisei Tokumin', serif;
+}
+/* 左側のコピーテキスト */
+
+
+/* -------------------------------右側の店舗情報 */
+/* 全体 */
+footer div.footer-profile {
+    width: 280px;
+    height: 95px;
+    font-size: 130%;
+    border-left: 5px dotted rgb(182, 28, 43);
+    margin-top: 15px;
+    margin-right: 20px;
+    font-family: 'Kaisei Tokumin', serif;
+}
+/* 全体 */
+
+
+/* 文字の設定 */
+footer div.footer-profile ul li {
+    list-style: none;
+    font-size: 80%;
+}
+/* 文字の設定 */
+
+
+/* -------------------------------右側の店舗情報 */
+
+
+/*　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　　　フッターの領域の設定 ここまで　　　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　*/
+	
