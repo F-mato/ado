@@ -1,104 +1,163 @@
 @charset "UTF-8";
 
- h3 {
-            padding-top: 10px;
-            padding-left: 50px;
-        }
+html {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-size: 62.5%;
+     /* ↑ デフォルトが16px設定なので62.5%=10pxにし、のちのサイズ設定を計算しやすくしています */
+     color: #40403f;
+     /* ↑まっくろじゃない色 */
+}
 
-        div.title {
-            box-sizing: content-box;
-            position: fixed;
-            z-index: 999;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-wrap: nowrap;
-            width: 100%;
-            height: 113px;
-            align-items: center;
-            border-bottom-style: solid;
-            border-bottom-color: rgb(182, 28, 43);
-            border-width: 4.5px;
-            box-shadow: 0 10px 10px #FFFFFF;
-            background: linear-gradient(to top, rgb(247, 247, 233), rgb(239, 224, 103));
-            font-family: 'Kaisei Tokumin', serif;
-        }
-        
-        div.mypage {
-            text-align: center;
-            
-            padding-top: 20px;
-            background-color: aliceblue;
-            font-size: 20px;
-        }
+p.contact {
+    padding-left: 40px;
+}
 
-        div.mypage h1 {
-            color: red;
-            padding-top: 80px;
+header {
+    box-sizing: content-box;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 113px;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(182, 28, 43);
+    border-width: 4.5px;
+    box-shadow: 0 10px 10px #FFFFFF;
+    background: linear-gradient(to top, rgb(247, 247, 233), rgb(239, 224, 103));
+    font-family: 'Kaisei Tokumin', serif;
+}
 
-        }
-
-        	/*　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　　　フッターの領域の設定 ここから　　　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　*/
- /* 全体 */
- footer {
-     display: flex;
-     justify-content: space-between;
-     margin-top: 40px;
-     width: 100%;
-     height: 120px;
-     background-color: rgba(166, 146, 150, 0.168);
-     background: linear-gradient(to top, rgb(232, 229, 229), rgb(165, 163, 163));
- }
- /* 全体 */
+/* ------------------------------------------------------------ ヘッダー領域全体*/
 
 
- /* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
- /* footer div.logo img { 
+/* ------------------------------------------------------------ ロゴ画像の領域 */
+/* 全体 */
+header div.top-image {
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    margin-left: 15px;
+    /* background-color: #40403f; */
+}
+/* 全体 */
+
+
+/* その画像の大きさと位置とまわりのぼかし効果 */
+header div.top-image img {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    box-shadow: 0px 0px 30px #be5e5e;
+}
+/* その画像の大きさと位置とまわりのぼかし効果 */
+
+
+/* ------------------------------------------------------------ ロゴ画像の領域 */
+
+
+/* --------------------------------------------------『クラシック映画館』の領域 */
+h3 {
+	padding-top: 10px;
+	padding-left: 50px;
+}
+
+div.title {
+	box-sizing: content-box;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	height: 113px;
+	align-items: center;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(182, 28, 43);
+	border-width: 4.5px;
+	box-shadow: 0 10px 10px #FFFFFF;
+	background: linear-gradient(to top, rgb(247, 247, 233),
+		rgb(239, 224, 103));
+	font-family: 'Kaisei Tokumin', serif;
+}
+
+div.mypage {
+	text-align: center;
+	padding-top: 20px;
+	background-color: aliceblue;
+	font-size: 20px;
+}
+
+div.mypage h1 {
+	color: red;
+	padding-top: 80px;
+}
+
+/*　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　　　フッターの領域の設定 ここから　　　▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼　*/
+/* 全体 */
+footer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+	width: 100%;
+	height: 120px;
+	background-color: rgba(166, 146, 150, 0.168);
+	background: linear-gradient(to top, rgb(232, 229, 229),
+		rgb(165, 163, 163));
+}
+/* 全体 */
+
+/* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
+/* footer div.logo img { 
      width: 130px;
      height: 130px;
      border-radius: 100%;
      margin-top: 20px;
      margin-left: 80px;
  }*/
- /* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
+/* ロゴとかいれるなら…の領域(とりあえず残しといてください) */
 
+/* 左側のコピーテキスト */
+footer div.footer-text {
+	width: 250px;
+	height: 30px;
+	font-size: 130%;
+	margin-top: 50px;
+	margin-left: 20px;
+	font-family: 'Kaisei Tokumin', serif;
+}
+/* 左側のコピーテキスト */
 
- /* 左側のコピーテキスト */
- footer div.footer-text {
-     width: 250px;
-     height: 30px;
-     font-size: 130%;
-     margin-top: 50px;
-     margin-left: 20px;
-     font-family: 'Kaisei Tokumin', serif;
- }
- /* 左側のコピーテキスト */
+/* -------------------------------右側の店舗情報 */
+/* 全体 */
+footer div.footer-profile {
+	width: 280px;
+	height: 95px;
+	font-size: 130%;
+	border-left: 5px dotted rgb(182, 28, 43);
+	margin-top: 15px;
+	margin-right: 20px;
+	font-family: 'Kaisei Tokumin', serif;
+}
+/* 全体 */
 
+/* 文字の設定 */
+footer div.footer-profile ul li {
+	list-style: none;
+	font-size: 80%;
+}
+/* 文字の設定 */
 
- /* -------------------------------右側の店舗情報 */
- /* 全体 */
- footer div.footer-profile {
-     width: 280px;
-     height: 95px;
-     font-size: 130%;
-     border-left: 5px dotted rgb(182, 28, 43);
-     margin-top: 15px;
-     margin-right: 20px;
-     font-family: 'Kaisei Tokumin', serif;
- }
- /* 全体 */
+/* -------------------------------右側の店舗情報 */
 
-
- /* 文字の設定 */
- footer div.footer-profile ul li {
-     list-style: none;
-     font-size: 80%;
- }
- /* 文字の設定 */
-
-
- /* -------------------------------右側の店舗情報 */
-
-
- /*　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　　　フッターの領域の設定 ここまで　　　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　*/
-	
+/*　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　　　フッターの領域の設定 ここまで　　　▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲　*/

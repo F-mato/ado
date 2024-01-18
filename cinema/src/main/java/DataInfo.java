@@ -14,10 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-
 @WebServlet("/DataInfo")
 public class DataInfo extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -28,7 +24,7 @@ public class DataInfo extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
-        String dbURL = "jdbc:postgresql://localhost:5432/classic";
+        String dbURL = "jdbc:postgresql://localhost:5432/cinema";
         String username = "postgres";
         String password = "admin";
 
@@ -47,7 +43,7 @@ public class DataInfo extends HttpServlet {
             conn = DriverManager.getConnection(dbURL, username, password);
 
             // プリペアードステートメントを使用してSQLクエリを作成
-            String query = "SELECT * FROM movies where date=? ";
+            String query = "SELECT * FROM title where date = ?";
             pstmt = conn.prepareStatement(query);
             pstmt.setString(1, selectedDate); // Set the value for the parameter
 
@@ -60,11 +56,18 @@ public class DataInfo extends HttpServlet {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String imgpath = rs.getString("imgpath");
+                String moviepath = rs.getString("moviepath");
+                String time1 = rs.getString("time1");
+                String time2 = rs.getString("time2");
+                String time3 = rs.getString("time3");
+                String time4 = rs.getString("time4");
+                String time5 = rs.getString("time5");
+                String time6 = rs.getString("time6");
 
-                movies.add(new Movie(screenId, title, description, imgpath));
+                movies.add(new Movie(screenId, title, description, imgpath, moviepath, time1, time2, time3, time4, time5, time6));
             }
 
-            MovieOut data = new MovieOut(movies); // ここでインスタンスを生成
+            MovieOut data = new MovieOut(movies);
             String yourJsonString = data.toJson();
             out.print(yourJsonString);
             out.flush();

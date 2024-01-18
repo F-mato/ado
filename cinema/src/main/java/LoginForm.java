@@ -2,10 +2,13 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HexFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,10 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-
-
-
 
 /**
  * Servlet implementation class LoginForm
@@ -45,24 +44,36 @@ public class LoginForm extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-
 		
 		PrintWriter out = response.getWriter();
 		
 		String userId = request.getParameter("userId");
 		String pass = request.getParameter("pass");
+        String hexString =null;
 		
-		
+        
+		// SHA-256
+		try {
+			MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+			byte[] sha256Byte = sha256.digest(pass.getBytes());
+			
+			HexFormat hex = HexFormat.of().withLowerCase();
+			hexString = hex.formatHex(sha256Byte);
+			System.out.println("SHA256");
+			System.out.println(hexString);
+		}
+		catch (NoSuchAlgorithmException e) {
+			
+		}
 		try 
 		{
 			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/classic", "postgres", "admin");
+			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cinema", "postgres", "admin");
 			
 			PreparedStatement ps = con.prepareStatement("select * from membertable where userId=? and pass=?") ;
 			ps.setString(1, userId);
-			ps.setString(2, pass);
+			ps.setString(2, hexString);
 
-			
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
@@ -75,7 +86,6 @@ public class LoginForm extends HttpServlet {
 				session.setAttribute("session_address", rs.getString("address"));
 				session.setAttribute("session_postNum", rs.getString("postNum"));
 				session.setAttribute("session_memberId", rs.getInt("memberId")); 
-				
 				
 				RequestDispatcher rd = request.getRequestDispatcher("/top2.jsp");
 				rd.include(request, response);

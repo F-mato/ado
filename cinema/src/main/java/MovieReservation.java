@@ -13,13 +13,13 @@ public class MovieReservation {
 		try {
 			// PostgreSQLへの接続
 			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/reserve";
+			String url = "jdbc:postgresql://localhost:5432/cinema";
 			String username = "postgres";
 			String password = "pass67";
 			connection = DriverManager.getConnection(url, username, password);
 
 			// クエリの実行
-			String query = "SELECT * FROM reservetable where reserveid=37 ";
+			String query = "SELECT * FROM reservetable where reserveid=? ";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 

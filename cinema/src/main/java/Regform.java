@@ -14,17 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-
-
 /**
  * Servlet implementation class Regform
  */
 @WebServlet("/Regform")
 public class Regform extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -34,7 +29,6 @@ public class Regform extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().append("Served at:/cinema/Regform").append(request.getContextPath());
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -52,13 +46,13 @@ public class Regform extends HttpServlet {
 		String address = request.getParameter("address");
 		String postNum = request.getParameter("postNum");
 		String gender = request.getParameter("gender");
-		
+		String birth = request.getParameter("birth");
 		try 
 		{
 			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/classic", "postgres", "admin");
+			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/cinema", "postgres", "admin");
 			
-			PreparedStatement ps = con.prepareStatement("insert into membertable(userid, pass, name, kana, tel, mail, address, postnum, gender) values(?, ?, ?, ?, ?, ?, ?, ?, ?)") ;
+			PreparedStatement ps = con.prepareStatement("insert into membertable(userid, pass, name, kana, tel, mail, address, postnum, gender, birth) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)") ;
 			ps.setString(1, userId);
 			ps.setString(2, pass);
 			ps.setString(3, name);
@@ -68,6 +62,7 @@ public class Regform extends HttpServlet {
 			ps.setString(7, address);
 			ps.setString(8, postNum);
 			ps.setString(9, gender);
+			ps.setString(10, birth);
 			
 			int count = ps.executeUpdate();
 			if(count > 0)
@@ -78,7 +73,7 @@ public class Regform extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("session_name", request.getParameter("name"));
 				
-				RequestDispatcher rd = request.getRequestDispatcher("/welcome.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/top2.jsp");
 				rd.include(request, response);
 			}
 			else
