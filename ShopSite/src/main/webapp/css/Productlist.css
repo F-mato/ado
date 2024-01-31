@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+html {
+	text-align: center;
+}
+
+body {
+	background-color: skyblue;
+}
+
+h1 {
+	background-color: blue;
+}
+
+h2 {
+	background-color: blue;
+}
+
+h3 {
+	background-color: blue;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th {
+	border: 1px solid black;
+	height: 20px;
+	text-align: center;
+	background-color: yellow;
+	
+}
+
+td {
+	border: 1px solid black;
+	height: 20px;
+	text-align: center;
+	background-color: white;
+	
+}
+
