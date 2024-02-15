@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#container {
+    margin: auto;
+    width: 50%;
+    border: 3px solid #00BFFF;
+    padding: 10px;
+}
+
+#visit-counter {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #FF4500;
+}
