@@ -1,0 +1,91 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    margin: 20px 0;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+weather-info {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+img {
+    margin-top: 10px;
+    max-width: 100px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* -------------------------------------------スマホ用-------------------------------------------------------------------
+/* メディアクエリ: 画面幅が600px未満の場合のスタイル */
+@media screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    select,
+    button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気アプリ (SQLite版)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!--新規追加-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>天気アプリ</h1>
+    </header>
+
+    <div class="container">
+        <form method="post">
+            <label for="city">都市を選択：</label>
+            <select id="city" name="city" required>
+                {% for city in cities %}
+                    <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">天気情報を取得</button>
+        </form>
+
+        <!-- ローディングメッセージ -->
+        <div id="loading-message" style="display: none;">
+            読み込み中...
+        </div>
+    <!--新規追加-->
+    <!-- <div id="map" style="height: 200px; width: 200px;"></div> -->
+
+        {% if city and weather_data %}
+            <weather-info>
+                <h2>{{ city }}の天気情報</h2>
+                <h3>今日の天気</h3>
+                <p>気温：{{ weather_data['today']['temperature'] }}°C</p>
+                <p>天気状況：{{ weather_data['today']['description'] }}</p>
+                <img src="http://openweathermap.org/img/w/{{ weather_data['today']['icon'] }}.png" alt="天気アイコン">
+
+                <h3>5日間の天気予報</h3>
+                <div id="forecast">
+                    {% for forecast in weather_data['forecast'] %}
+                        <div class="forecast-item">
+                            <p>{{ forecast['date'] }}</p>
+                            <p>気温：{{ forecast['temperature'] }}°C</p>
+                            <p>天気状況：{{ forecast['description'] }}</p>
+                            <img src="http://openweathermap.org/img/w/{{ forecast['icon'] }}.png" alt="天気アイコン">
+                        </div>
+                    {% endfor %}
+                </div>
+            </weather-info>
+        {% endif %}
+    </div>
+
+    <footer>
+        &copy; 2024 天気アプリ
+    </footer>
+</body>
+</html>
