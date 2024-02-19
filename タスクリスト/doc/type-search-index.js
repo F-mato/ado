@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.example.taskmanager","l":"GraphServlet"},{"p":"com.example.taskmanager","l":"Task"},{"p":"com.example.taskmanager","l":"TaskDAO"},{"p":"com.example.taskmanager","l":"TaskServlet"}];updateSearchResults();
