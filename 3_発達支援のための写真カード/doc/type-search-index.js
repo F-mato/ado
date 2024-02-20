@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"photo","l":"DeleteServlet"},{"p":"photo","l":"ImageInfo"},{"p":"photo","l":"LoginServlet"},{"p":"photo","l":"LogoutServlet"},{"p":"photo","l":"RegisterServlet"},{"p":"photo","l":"UploadServlet"}];updateSearchResults();
